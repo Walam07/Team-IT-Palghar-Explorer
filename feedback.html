@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Palghar Travel Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navigation -->
+    <div class="p-6">
+        <a href="index.html" class="bg-blue-600 text-white py-2 px-4 rounded-lg">Back to Dashboard</a>
+    </div>
+
+    <!-- Feedback Form -->
+    <div class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold text-center">Give Your Feedback</h2>
+
+        <form class="mt-6">
+            <div class="mb-4">
+                <label for="name" class="block">Name</label>
+                <input type="text" id="name" class="w-full p-2 mt-2 text-black">
+            </div>
+
+            <div class="mb-4">
+                <label for="experience" class="block">How was your experience?</label>
+                <textarea id="experience" class="w-full p-2 mt-2 text-black" rows="4"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="review" class="block">Your Reviews</label>
+                <textarea id="review" class="w-full p-2 mt-2 text-black" rows="4"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="rating" class="block">Rating (1 to 5)</label>
+                <select id="rating" class="w-full p-2 mt-2 text-black">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <!-- Link to Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<!-- Link to Custom Styles (style.css) -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Link to JavaScript file -->
+<script src="script.js" defer></script>
+
+
+            <button type="submit" class="bg-green-600 py-2 px-4 text-white rounded-lg">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

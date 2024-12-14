@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport - Palghar Travel Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body
+     
+class="bg-gradient-to-r from-blue-800 via-black-800 to-blue-500 text-white font-roboto">
+
+    <!-- Navigation -->
+    <div class="p-6 bg-black bg-opacity-50 rounded-lg">
+        <a href="index.html" class="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition duration-300">Back to Dashboard</a>
+    </div>
+
+    <!-- Transport Fare Calculation -->
+    <div class="container mx-auto p-6 bg-black bg-opacity-60 rounded-lg mt-10">
+        <h2 class="text-4xl font-bold text-center mb-6">Calculate Your Fare</h2>
+        
+        <div class="mt-6">
+            <label for="source" class="block text-lg">Source (PALGHAR)</label>
+            <input type="text" id="source" class="w-full p-3 mt-2 text-black bg-white border-2 border-blue-500 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600" value="PALGHAR" disabled>
+
+            <label for="destination" class="block mt-4 text-lg">Destination</label>
+            <select id="destination" class="w-full p-3 mt-2 text-black bg-white border-2 border-blue-500 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                <option value="shirgaon">Shirgaon Beach</option>
+                <option value="kaldurg">Kaldurg Fort</option>
+                <option value="kelve">Kelve Beach</option>
+                <option value="mahalaxmi">Mahalaxmi Temple</option>
+                <option value="breeze">Breeze - The Rooftop Cafe</option>
+            </select>
+
+            <button class="mt-6 bg-blue-600 py-3 px-6 text-white rounded-lg shadow-lg hover:bg-blue-700 transition duration-300" onclick="showVehicles()">Get Fare</button>
+        </div>
+
+        <!-- Vehicle Selection -->
+        <div id="vehicle-selection" class="mt-6 hidden">
+            <h3 class="text-xl font-semibold">Select Vehicle</h3>
+            <select id="vehicle" class="w-full p-3 mt-2 text-black bg-white border-2 border-blue-500 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                <option value="car">Car</option>
+                <option value="bus">Bus</option>
+                <option value="auto">Auto</option>
+                <option value="echo">Echo</option>
+            </select>
+
+            <button class="mt-6 bg-blue-600 py-3 px-6 text-white rounded-lg shadow-lg hover:bg-blue-700 transition duration-300" onclick="calculateFare()">Get Fare</button>
+        </div>
+        
+        <div id="fare-result" class="mt-6 hidden">
+            <p class="text-xl">Calculated Fare: <span id="fare"></span> Rs</p>
+            <button class="mt-6 bg-green-600 py-3 px-6 text-white rounded-lg shadow-lg hover:bg-green-700 transition duration-300" onclick="bookFare()">Book</button>
+        </div>
+    </div>
+
+    <!-- Link to Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Link to Custom Styles (style.css) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js" defer></script>
+
+    <script>
+        // Show vehicle selection after choosing destination
+        function showVehicles() {
+            document.getElementById("vehicle-selection").classList.remove("hidden");
+        }
+
+        function calculateFare() {
+            const destination = document.getElementById("destination").value;
+            const vehicle = document.getElementById("vehicle").value;
+            let fare = 0;
+            
+            // Example fares for different distances and vehicles
+            const distances = {
+                shirgaon: 10,
+                kaldurg: 5,
+                kelve: 4,
+                mahalaxmi: 11,
+                breeze: 6
+            };
+
+            const rates = {
+                car: 10,
+                bus: 20,
+                auto: 5,
+                echo: 25
+            };
+
+            const km = distances[destination];
+            const rate = rates[vehicle];
+            fare = km * rate;
+
+            document.getElementById("fare").textContent = fare;
+            document.getElementById("fare-result").classList.remove("hidden");
+        }
+          
+
+        // Simulate booking
+        function bookFare() {
+            alert("Fare booked successfully!");
+            window.location.href = "index.html";  // Redirect to home page
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* Custom Styles for the Project */
+
+/* Ensuring all the text is white and background is black */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+/* Centering and styling the image of destination and other content */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Add transitions to buttons for smooth hover effects */
+button {
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #1D4ED8;
+}
+
+/* Custom styling for the form */
+textarea, input, select {
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.slide-title {
+    animation: slideIn 3s ease-in-out infinite;
+}
+body {
+    background: url('travel.jpg') no-repeat center center fixed; /* Replace with a suitable travel-themed background image */
+    background-size: cover;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.quote-section {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    padding: 50px;
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.quote-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.quote-section p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.quote-section .author {
+    margin-top: 20px;
+    font-weight: bold;
+}

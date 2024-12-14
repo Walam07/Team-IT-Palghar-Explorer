@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination - Palghar Travel Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hover-highlight:hover {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            color: white;
+            transform: scale(1.1);
+        }
+        .img-shadow {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 50;
+            background: white;
+            color: black;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+            padding: 20px;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 40;
+        }
+        body {
+            
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-white font-sans">
+
+    <!-- Navigation -->
+    <div class="p-6 bg-black bg-opacity-60 rounded-lg">
+        <a href="index.html" class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Back to Dashboard</a>
+    </div>
+
+    <!-- Destination Section -->
+    <div class="container mx-auto p-8 mt-10 bg-black bg-opacity-70 rounded-lg shadow-xl">
+        <h2 class="text-4xl font-bold text-center mb-8">Choose Your Destination</h2>
+        
+
+        <div class="grid grid-cols-3 gap-6 mt-6 text-center">
+            <button class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" onclick="showSection('spots')">Spots</button>
+            <button class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" onclick="showSection('stations')">Stations</button>
+            <button class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" onclick="showSection('cafes')">Cafes & Restaurants</button>
+        </div>
+
+        <!-- Destination Content -->
+        <div id="spots" class="mt-6 hidden">
+            <h3 class="text-xl font-semibold text-center">Popular Spots</h3>
+            <ul class="grid grid-cols-2 gap-6 mt-4">
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Shirgaon Beach', 'A serene beach with beautiful views and a relaxing atmosphere.')">
+                    <img src="shirgaonbeach.jpg" alt="Shirgaon Beach" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Shirgaon Beach</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Kaldurg Fort', 'Kaldurg Fort, located near Palghar in Maharashtra, is a historic hill fort known for its unique split-top structure. The fort offers panoramic views of the surrounding Sahyadri ranges and is popular among trekkers. Its relatively easy trek makes it suitable for beginners, and the lush greenery during the monsoon adds to its charm. Though not much remains of the fort, the experience of exploring its ruins and enjoying the natural beauty is highly rewarding..')">
+                    <img src="kaldurg.jpg" alt="Kaldurg Fort" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Kaldurg Fort</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Kelve Beach', 'Kelve Beach, located near Palghar, is a tranquil stretch of coastline known for its pristine sands and calm waters. It is a popular spot for picnics, weekend getaways, and leisure activities like horse riding and beach volleyball. The nearby Kelve Fort adds a historical touch to the visit. The beach is surrounded by lush greenery and is particularly scenic during sunrise and sunset, making it a photographer delight')">
+                    <img src="kelvebeach.jpg" alt="Kelve Beach" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Kelve Beach</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Vandri Lake', 'Vandri Lake is a serene artificial lake near Palghar, surrounded by dense forests and rolling hills. The lake serves as a perfect spot for nature lovers, birdwatchers, and photographers. It is also a popular destination for trekking and camping. The peaceful environment and the reflections of the surrounding landscape on the water make it an ideal retreat from urban life.')">
+                    <img src="vandri.jpg" alt="Vandri Lake" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Vandri Lake</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Dhabosa Waterfall', 'Dabhosa Waterfall, located near Jawhar in Maharashtra, is one of the highest waterfalls in the state. The waterfall, cascading from a height of about 300 feet, is a breathtaking sight, especially during the monsoon season. Surrounded by dense forests and rocky terrain, it is a popular spot for adventure activities like rappelling and kayaking. Its natural beauty and thrilling activities attract tourists and adventure enthusiasts alike.')">
+                    <img src="dhabosawaterfall.jpg" alt="Dhabosa Waterfall" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Dhabosa Waterfall</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Jawhar Rajwada', 'Jawhar Rajwada, also known as Jai Vilas Palace, is a magnificent royal palace in Jawhar. Built by the Mukne dynasty, the palace exhibits an Indo-Saracenic architectural style and offers a glimpse into the region’s royal heritage. Surrounded by lush greenery and situated atop a hill, it offers stunning views of the valley below. The palace historic significance and picturesque location make it a must-visit spot.')">
+                    <img src="jawhar.jpg" alt="Jawhar Rajwada" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Jawhar Rajwada</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Jivdani Temple', 'Jivdani Temple, perched atop a hill in Virar, is a revered shrine dedicated to Goddess Jivdani. Devotees climb over 1,000 steps to reach the temple, symbolizing devotion and perseverance. The temple offers panoramic views of Virar and the Arabian Sea. It is particularly crowded during Navratri when thousands of devotees visit to seek blessings. The trek to the temple adds a spiritual and adventurous touch to the visit.')">
+                    <img src="jivdanitemple.jpg" alt="Jivdani Temple" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Jivdani Temple</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300" onclick="showModal('Tarapur Fort, located near Boisar in Maharashtra, is a coastal fort with historical significance. Built by the Portuguese, the fort once served as a strategic stronghold. Though now in ruins, its remnants, such as bastions and walls, reflect its architectural heritage. Surrounded by the scenic beauty of the Arabian Sea, it’s a great spot for history enthusiasts and photographers seeking a blend of history and nature.')">
+                    <img src="tarapur.jpg" alt="Tarapur Fort" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Tarapur Fort</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="stations" class="mt-6 hidden">
+            <h3 class="text-xl font-semibold text-center">Stations</h3>
+            <ul class="grid grid-cols-2 gap-6 mt-4">
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="palghar.jpg" alt="Palghar Station" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Palghar Station</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="boisar.jpg" alt="Boisar Station" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow">
+                    <p>Boisar Station</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="cafes" class="mt-6 hidden">
+            <h3 class="text-xl font-semibold text-center">Cafes & Restaurants</h3>
+            <ul class="grid grid-cols-2 gap-6 mt-4">
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="breeze.jpg" alt="Breeze Cafe" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Breeze - The Rooftop Cafe</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="break.jpg" alt="Break a Leg Cafe" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Break a Leg Cafe</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="just in.jpg" alt="Cafe Just In" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Cafe Just In</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="hang out.jpg" alt="Hangout Cafe" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Hangout Cafe</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="stoneoven.png" alt="Stone Oven" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Stone Oven</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="dominos.jpg" alt="Dominos" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Dominos</p>
+                </li>
+                <li class="flex flex-col items-center bg-white text-black rounded-lg shadow-lg p-4 hover:scale-105 transform transition duration-300">
+                    <img src="vinger9.jpg" alt="Vinger 9" class="w-40 h-40 border-4 border-indigo-500 rounded-lg mb-2 img-shadow" >
+                    <p>Vinger 9</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+        <!-- Modal -->
+        <div id="modal" class="hidden">
+            <div class="modal-overlay" onclick="closeModal()"></div>
+            <div class="modal">
+                <h2 id="modal-title" class="text-xl font-bold"></h2>
+                <p id="modal-description" class="mt-4"></p>
+                <button class="mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('spots').classList.add('hidden');
+            document.getElementById('stations').classList.add('hidden');
+            document.getElementById('cafes').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function showModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
